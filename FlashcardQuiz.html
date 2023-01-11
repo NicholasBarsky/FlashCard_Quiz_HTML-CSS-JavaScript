@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <title>Persona 5 FlashCard Study</title>
+        <style>
+            body {
+                background-image: url("https://getwallpapers.com/wallpaper/full/f/d/8/1086847-beautiful-persona-5-wallpapers-1920x1080.jpg");
+                background-size: cover;
+                background-position: bottom right ;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-color:rgb(162, 3, 3);
+            }
+            background-image {
+                position: relative;
+                z-index: 1;
+            }
+
+            div {
+                text-align: center;
+            }
+            img {
+                width: 300px;
+                height: 450px;
+            }
+            h1 {
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            p {
+                font-size: 20px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+
+        </style>
+
+        <script>
+            var Urls = ["https://ih1.redbubble.net/image.1354933540.2867/flat,750x1000,075,f.jpg",
+                        "https://th.bing.com/th/id/OIP.rOz6L0HqQcpSgKXn_YnjgAHaFH?pid=ImgDet&rs=1",
+                        "https://th.bing.com/th/id/OIP.7o4NYATnxAQQ0P5PdS85BQAAAA?pid=ImgDet&rs=1",
+                        "https://i.pinimg.com/originals/15/20/3a/15203a788952e2b651140c7246e4869b.png",
+                        "https://static.tvtropes.org/pmwiki/pub/images/yusuke.png",
+                        "https://cdnen.samurai-gamers.com/wp-content/uploads/2017/02/22123209/P5_Makoto_Nijima-e1558499525817.png",
+                        "https://gearnuke.com/wp-content/uploads/2016/05/persona-5-futaba.jpg",
+                        "https://th.bing.com/th/id/OIP.QiwI9dvMrD_O8eUXgPDqsQHaNi?pid=ImgDet&rs=1",
+                        "https://th.bing.com/th/id/OIP.4R9nlMoIy1EJ-ggyP40fMAHaGT?pid=ImgDet&rs=1",
+                        "https://i.pinimg.com/originals/d4/df/90/d4df9044a7652558e259c630df41feaa.png",
+                        "https://img.rankedboost.com/wp-content/uploads/2017/03/Igor_Persona_5.png",
+                        "https://th.bing.com/th/id/R.1580fd774f8b66ad97a002ec996d9b08?rik=oVjw3dEg3ubdQQ&pid=ImgRaw&r=0",
+                        "https://atlus.com/persona5/img/characters/tae_takemi.png",
+                        "https://th.bing.com/th/id/R.798ba97c528394e8eb54f156884f038b?rik=GBMhSvkNoOCtRg&pid=ImgRaw&r=0",
+                        "https://th.bing.com/th/id/R.c8cfeabddc739519dc241a7bcb5111ce?rik=bqwk3FbSVJHADA&pid=ImgRaw&r=0",
+                        "https://th.bing.com/th/id/R.a35eef270d5c1094b7a029c177a11d44?rik=e5vN7k63RV9I8A&pid=ImgRaw&r=0",
+                        "https://th.bing.com/th/id/R.5e1aa1962d6e79924841255d7bb4ebb6?rik=QspBmyJQCaIJ1Q&pid=ImgRaw&r=0",
+                        "https://th.bing.com/th/id/R.7a6ca70b55bba946d6202fe6185aef68?rik=vRkc%2fBmYuOnmVg&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fmegamitensei%2fimages%2fb%2fba%2fP5_Munehisa_Iwai.png%2frevision%2flatest%3fcb%3d20160902025835&ehk=gwpDNBQqK7FyWZIBX3JDFQ86A4PIBiHX3B0PSckKw2A%3d&risl=&pid=ImgRaw&r=0",
+                        "https://th.bing.com/th/id/R.4008b4d9440b690e916fbed3ed6e98d6?rik=x%2ftNY3eaCcWFXw&riu=http%3a%2f%2fami.animecharactersdatabase.com%2fuploads%2fchars%2f39134-1401590663.png&ehk=uzoqs8ZqzLENeyS9e%2bxNyCy0FdmWFrq74aEYw7az5qk%3d&risl=&pid=ImgRaw&r=0",
+                        "https://th.bing.com/th/id/R.d9a2b0ef683bcdc558eda8b612a9231a?rik=Fwj4cze9yM9ukg&pid=ImgRaw&r=0"];
+
+            var answers = ["Ren Amamiya","Morgana","Ryuji Sakamoto","Ann Takamaki","Yusuke Kitagawa","Makoto Niijima","Futaba Sakura",
+                            "Haru Okumura","Goro Akechi","Sumire Yoshizawa","Igor","Sojiro Sakura","Tae Takemi","Sae Niijima","Sadayo Kawakami",
+                            "Yuuki Mishima","Chihaya Mifune","Munehisa Iwai","Ichiko Ohyo","Toranosuke Yoshida"];
+            var correct;
+            var correctAnswers = 0;
+            var pick = false;
+
+            function getRandImg(){
+           correct = Math.floor(Math.random() * Urls.length);
+           
+           document.getElementById("picture").src = Urls[correct];
+        
+        }
+
+        function setRandButtons()
+        {
+                var answerButton = Math.floor((Math.random() * 4) + 1);
+
+                var random = randomAnswers();
+
+                const button1 = document.getElementById("button1");
+                const button2 = document.getElementById("button2");
+                const button3 = document.getElementById("button3");
+                const button4 = document.getElementById("button4");
+
+                if(answerButton == 1)
+                {
+                    document.getElementById("button1").value = answers[correct];
+                    document.getElementById("button2").value = answers[random[0]];
+                    document.getElementById("button3").value = answers[random[1]];
+                    document.getElementById("button4").value = answers[random[2]];
+                    
+                }
+                if(answerButton == 2)
+                {
+                    document.getElementById("button2").value = answers[correct];
+                    document.getElementById("button1").value = answers[random[0]];
+                    document.getElementById("button3").value = answers[random[1]];
+                    document.getElementById("button4").value = answers[random[2]];
+
+                }
+                if(answerButton == 3)
+                {
+                    document.getElementById("button3").value = answers[correct];
+                    document.getElementById("button1").value = answers[random[0]];
+                    document.getElementById("button2").value = answers[random[1]];
+                    document.getElementById("button4").value = answers[random[2]];
+
+                }
+                if(answerButton == 4)
+                {
+                    document.getElementById("button4").value = answers[correct];
+                    document.getElementById("button1").value = answers[random[0]];
+                    document.getElementById("button2").value = answers[random[1]];
+                    document.getElementById("button3").value = answers[random[2]];
+
+                }
+            }
+            function randomAnswers(){
+            var rand1 = Math.floor(Math.random() * answers.length);
+            var rand2 = Math.floor(Math.random() * answers.length);
+            var rand3 = Math.floor(Math.random() * answers.length);
+
+            while (rand1 == correct)
+                rand1 = Math.floor(Math.random() * answers.length);
+
+            while (rand2 == correct || rand2 == rand1)
+                rand2 = Math.floor(Math.random() * answers.length);
+
+            while(rand3 == correct || rand3 == rand1 || rand3 == rand2)
+                rand3 = Math.floor(Math.random() * answers.length);
+            
+            return [rand1, rand2, rand3];
+        }
+
+        
+        var QuestionNumber = 1;
+
+        function refresh()
+        {
+
+            button1.style.backgroundColor = 'white';
+            button1.style.color = 'black';
+
+            button2.style.backgroundColor = 'white';
+            button2.style.color = 'black';
+
+            button3.style.backgroundColor = 'white';
+            button3.style.color = 'black';
+
+            button4.style.backgroundColor = 'white';
+            button4.style.color = 'black';
+
+            document.getElementById("QuestionNumber").innerHTML = QuestionNumber;
+
+            document.getElementById("correctAnswers").innerHTML = correctAnswers;
+            
+            pick = false;
+        }
+
+
+        function start(){
+
+            getRandImg();
+            setRandButtons();
+            randomAnswers();
+        }
+        
+        function nextButton(){
+            ++QuestionNumber;
+            refresh();
+            start();
+
+        }
+            
+        function checkGuess(obj){
+            if(obj.value == answers[correct]){
+                document.getElementById(obj.id).setAttribute("style", "background-color: green")
+                
+                if(pick == false){
+                    ++correctAnswers;
+                    document.getElementById("correctAnswers").innerHTML = correctAnswers;
+                }
+            }
+            else {
+                document.getElementById(obj.id).setAttribute("style", "background-color: Orange")
+            }
+            
+            pick = true;
+        }
+
+        window.addEventListener("load", start, false);
+
+        </script>
+        </head>
+        
+        <body>
+            <h1>Persona 5 character guessing quiz</h1>
+            <div>
+                <img id = "picture" src = "" alt = " "> 
+            </div>
+            <div>
+                <input id ="button1"type="button" value="" onclick = "checkGuess(this)">
+                <input id ="button2"type="button" value="" onclick = "checkGuess(this)">
+                <input id ="button3"type="button" value="" onclick = "checkGuess(this)">
+                <input id ="button4"type="button" value="" onclick = "checkGuess(this)">
+                
+            </div>
+            <div>
+                <p> </p>
+            </div>
+            <div>
+                <input id = "nextButton" type="button" value="Next" onclick="nextButton()">
+            </div>
+            <div>
+                <p>Question Number: <span id = "QuestionNumber">1</span></p>
+                <p>Correct answers: <span id = "correctAnswers">0</span></p>
+            </div>
+        </body>
+
+</html>
